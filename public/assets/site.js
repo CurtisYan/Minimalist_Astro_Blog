@@ -34,7 +34,7 @@ function normalizeText(value) {
 function sectionLabel(section) {
   const config = window.__SITE_CONFIG || {};
   const sectionConfig = config.sections && config.sections[section];
-  return (sectionConfig && sectionConfig.title) || (section === "life" ? "生活" : section === "tech" ? "技术" : section);
+  return (sectionConfig && sectionConfig.title) || (section === "life" ? "Life" : section === "tech" ? "Tech" : section);
 }
 
 function sectionPath(section) {
@@ -246,7 +246,7 @@ function setupNavigationToggle() {
   toggle.dataset.navBound = "true";
 
   // Ensure the visible label is localized; JS will override the static 'Menu' text.
-  const configMenuLabel = (window.__SITE_CONFIG && window.__SITE_CONFIG.menuLabel) || "菜单";
+  const configMenuLabel = (window.__SITE_CONFIG && window.__SITE_CONFIG.menuLabel) || "Menu";
   if (toggle.textContent.trim() === "Menu") {
     toggle.textContent = configMenuLabel;
   }

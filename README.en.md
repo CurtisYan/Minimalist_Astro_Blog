@@ -1,10 +1,8 @@
-# Minimal Blog Template
-
-[中文 README](./README.md)
+# Minimalist Astro Blog
 
 Demo: [blog.curvio.org](https://blog.curvio.org)
 
-A minimal Astro blog template. It defaults to Chinese and works well for bilingual Chinese/English writing. The theme focuses on a clear archive, comfortable Markdown reading, restrained image presentation, and centralized configuration.
+A minimal Astro blog template for quiet personal publishing. It defaults to English and still works well for Chinese or bilingual Chinese/English writing. The theme focuses on a clear archive, comfortable serif article typography, flat centered images, local search, related posts, and centralized configuration.
 
 ## Local Preview
 
@@ -22,7 +20,7 @@ npm run preview
 
 ## Configuration
 
-The main config file is `src/config/site.ts`. Change the site title, navigation, whether the tag link is hidden, about-page buttons, footer text, and section mappings there.
+The main config file is `src/config/site.ts`. Change the site title, navigation, tag link visibility, about-page buttons, footer text, and section mappings there.
 
 The two guide articles are included in the blog:
 

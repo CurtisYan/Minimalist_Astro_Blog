@@ -1,15 +1,15 @@
 export const siteConfig = {
   siteUrl: 'https://example.com',
-  lang: 'zh-CN',
-  title: '极简博客模板',
-  description: '一个支持中英内容的 Astro 极简博客模板。',
-  menuLabel: '菜单',
-  archiveTitle: '归档',
+  lang: 'en',
+  title: 'Minimalist Blog Template',
+  description: 'A minimal Astro blog template for clear archives, calm writing, and bilingual content.',
+  menuLabel: 'Menu',
+  archiveTitle: 'Archive',
   archiveSubtitle: '',
   assets: {
     stylesheet: '/assets/site.css',
     script: '/assets/site.js',
-    scriptVersion: '20260622a',
+    scriptVersion: '20260623a',
     icons: [
       { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
       { rel: 'alternate icon', href: '/favicon.ico' }
@@ -22,19 +22,19 @@ export const siteConfig = {
     configPath: '/assets/site-config.json'
   },
   nav: [
-    { label: '生活', href: '/life/' },
-    { label: '技术', href: '/tech/' },
-    { label: '标签', href: '/tags/', hidden: false },
-    { label: '关于', href: '/about/' }
+    { label: 'Life', href: '/life/' },
+    { label: 'Tech', href: '/tech/' },
+    { label: 'Tags', href: '/tags/', hidden: false },
+    { label: 'About', href: '/about/' }
   ],
   sections: {
     life: {
-      title: '生活',
+      title: 'Life',
       href: '/life/',
       dirs: ['daily']
     },
     tech: {
-      title: '技术',
+      title: 'Tech',
       href: '/tech/',
       dirs: ['tech']
     }
@@ -44,15 +44,15 @@ export const siteConfig = {
   },
   aboutLinks: [
     {
-      label: '模板特色',
+      label: 'Template Features',
       href: '/posts/tech/2026-06-23-template-features/'
     },
     {
-      label: '使用说明',
+      label: 'Usage Guide',
       href: '/posts/tech/2026-06-24-template-usage/'
     },
     {
-      label: '示例文章',
+      label: 'Sample Post',
       href: '/posts/daily/2026-06-20-welcome/'
     },
     {
