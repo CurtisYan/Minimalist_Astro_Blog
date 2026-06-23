@@ -1,0 +1,11 @@
+---
+import PostArchive from '../components/PostArchive.astro';
+import SiteLayout from '../components/SiteLayout.astro';
+import { siteConfig } from '../config/site';
+import { loadPosts } from '../lib/posts';
+
+const posts = await loadPosts();
+---
+<SiteLayout showTagline>
+  <PostArchive title={siteConfig.archiveTitle} posts={posts} />
+</SiteLayout>

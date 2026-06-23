@@ -1,0 +1,5 @@
+import { redirectResponse } from '../lib/redirect-response';
+
+export function GET() {
+  return redirectResponse('/life/', 'Life', 'life');
+}

@@ -1,0 +1,13 @@
+---
+import SiteLayout from '../components/SiteLayout.astro';
+---
+<SiteLayout title="Page Not Found">
+  <main class="stack error-header">
+    <h2>Page Not Found</h2>
+    <p>The page you are looking for could not be found. Search below or return to the front page.</p>
+    <form class="search-box" action="/search.html" method="get" role="search" aria-label="Search">
+      <input type="search" name="q" placeholder="Search..." aria-label="Search">
+      <button type="submit">Go</button>
+    </form>
+  </main>
+</SiteLayout>

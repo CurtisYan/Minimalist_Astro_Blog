@@ -1,0 +1,24 @@
+---
+import { siteConfig } from '../config/site';
+
+type Props = {
+  destination: string;
+  title?: string;
+  label?: string;
+};
+
+const { destination, title = 'Redirecting', label = destination } = Astro.props;
+---
+<!doctype html>
+<html lang={siteConfig.lang}>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="refresh" content={`0; url=${destination}`}>
+    <link rel="canonical" href={destination}>
+    <title>{title} | {siteConfig.title}</title>
+  </head>
+  <body>
+    <p>Redirecting to <a href={destination}>{label}</a>.</p>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+---
+import { siteConfig } from '../config/site';
+---
+<footer class="site-footer stack">
+  <div class="separator-wrap">
+    <hr class="archive-separator">
+  </div>
+  <p>&copy; <span data-year></span> {siteConfig.footer.text || siteConfig.title}</p>
+  {siteConfig.footer.credit ? (
+    <p class="credits">
+      <a href={siteConfig.footer.credit.href}>{siteConfig.footer.credit.label}</a>
+    </p>
+  ) : null}
+</footer>

@@ -1,0 +1,12 @@
+---
+import PostArchive from '../components/PostArchive.astro';
+import SiteLayout from '../components/SiteLayout.astro';
+import { siteConfig } from '../config/site';
+import { filterPostsBySection, loadPosts } from '../lib/posts';
+
+const posts = filterPostsBySection(await loadPosts(), 'tech');
+const section = siteConfig.sections.tech;
+---
+<SiteLayout title={section.title}>
+  <PostArchive title={section.title} posts={posts} section="tech" />
+</SiteLayout>

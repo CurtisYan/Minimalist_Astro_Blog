@@ -1,0 +1,47 @@
+---
+import { getCollection } from 'astro:content';
+import { getEntry, render } from 'astro:content';
+import RelatedPosts from '../../components/RelatedPosts.astro';
+import SiteLayout from '../../components/SiteLayout.astro';
+import { getRecommendedPosts } from '../../lib/related-posts';
+import { formatMonthDay, getPostDate, getPostTags, getTagHref } from '../../lib/posts';
+
+export async function getStaticPaths() {
+  const posts = (await getCollection('posts')).filter((post) => !post.data.draft);
+  return posts
+    .map((post) => {
+      const slugValue = String(post.slug || post.id || '').trim();
+      if (!slugValue) {
+        return null;
+      }
+      return {
+        params: { slug: slugValue }
+      };
+    })
+    .filter(Boolean);
+}
+
+const slugParam = Array.isArray(Astro.params.slug) ? Astro.params.slug.join('/') : Astro.params.slug;
+const post = await getEntry('posts', slugParam);
+if (!post) throw new Error(`Post not found: ${slugParam}`);
+const { Content } = await render(post);
+const publishedDate = getPostDate(post);
+const tags = getPostTags(post);
+const posts = (await getCollection('posts')).filter((entry) => !entry.data.draft);
+const recommendedPosts = getRecommendedPosts(post, posts);
+---
+<SiteLayout title={post.data.title}>
+  <main class="article">
+    <h1>{post.data.title}</h1>
+    <p class="post-meta">{formatMonthDay(publishedDate) || post.data.date || ''}</p>
+    <Content />
+    {tags.length ? (
+      <p class="post-tags" aria-label="Tags">
+        {tags.map((tag) => (
+          <a href={getTagHref(tag)}>#{tag}</a>
+        ))}
+      </p>
+    ) : null}
+    <RelatedPosts items={recommendedPosts} />
+  </main>
+</SiteLayout>

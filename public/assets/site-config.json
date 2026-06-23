@@ -1,0 +1,31 @@
+{
+  "siteTitle": "极简博客模板",
+  "headerTitle": "极简博客模板",
+  "tagline": "一个支持中英内容的 Astro 极简博客模板。",
+  "menuLabel": "菜单",
+  "nav": [
+    { "label": "生活", "href": "/life/" },
+    { "label": "技术", "href": "/tech/" },
+    { "label": "标签", "href": "/tags/", "hidden": false },
+    { "label": "关于", "href": "/about/" }
+  ],
+  "sections": {
+    "life": {
+      "title": "生活",
+      "subtitle": "",
+      "filter": "life",
+      "dirs": ["daily"]
+    },
+    "tech": {
+      "title": "技术",
+      "subtitle": "",
+      "filter": "tech",
+      "dirs": ["tech"]
+    }
+  },
+  "archiveTitle": "归档",
+  "archiveSubtitle": "",
+  "footerTextHtml": "© 2026 极简博客模板",
+  "footerCreditHtml": "",
+  "aboutSource": "src/content/pages/about.md"
+}

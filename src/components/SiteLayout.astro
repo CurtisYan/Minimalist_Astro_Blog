@@ -1,0 +1,72 @@
+---
+import { siteConfig } from '../config/site';
+import { ClientRouter } from 'astro:transitions';
+import SearchOverlay from './SearchOverlay.astro';
+import SiteFooter from './SiteFooter.astro';
+import SiteHeader from './SiteHeader.astro';
+
+type Props = {
+  title?: string;
+  description?: string;
+  showTagline?: boolean;
+};
+
+const { title, description = siteConfig.description, showTagline = false } = Astro.props;
+const pageTitle = title ? `${title} | ${siteConfig.title}` : siteConfig.title;
+const clientScriptSrc = siteConfig.assets.scriptVersion
+  ? `${siteConfig.assets.script}?v=${siteConfig.assets.scriptVersion}`
+  : siteConfig.assets.script;
+const navItems = siteConfig.nav.filter((item) => !('hidden' in item && item.hidden));
+const clientSiteConfig = {
+  siteTitle: siteConfig.title,
+  headerTitle: siteConfig.title,
+  tagline: siteConfig.description,
+  menuLabel: siteConfig.menuLabel,
+  archiveTitle: siteConfig.archiveTitle,
+  archiveSubtitle: siteConfig.archiveSubtitle,
+  nav: navItems,
+  sections: Object.fromEntries(
+    Object.entries(siteConfig.sections).map(([section, config]) => [
+      section,
+      {
+        title: config.title,
+        href: config.href,
+        subtitle: 'subtitle' in config ? config.subtitle : '',
+        filter: section,
+        dirs: config.dirs
+      }
+    ])
+  ),
+  legacyConfigPath: siteConfig.legacy.configPath
+};
+const clientSiteConfigScript = [
+  `window.__SITE_CONFIG = ${JSON.stringify(clientSiteConfig).replace(/</g, '\\u003c')};`,
+  `window.__SITE_CONFIG_PATH = ${JSON.stringify(siteConfig.legacy.configPath).replace(/</g, '\\u003c')};`
+].join('\n');
+---
+<!doctype html>
+<html lang={siteConfig.lang}>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{pageTitle}</title>
+    {description ? <meta name="description" content={description}> : null}
+    <ClientRouter />
+    {siteConfig.external.imageHost ? <link rel="preconnect" href={siteConfig.external.imageHost}> : null}
+    {siteConfig.assets.icons.map((icon) => (
+      <link rel={icon.rel} href={icon.href} type={'type' in icon ? icon.type : undefined}>
+    ))}
+    <link rel="stylesheet" href={siteConfig.assets.stylesheet}>
+  </head>
+  <body>
+    <div class="site-shell">
+      <SiteHeader showTagline={showTagline} />
+      <slot />
+      <SiteFooter />
+    </div>
+    <SearchOverlay />
+
+    <script is:inline set:html={clientSiteConfigScript}></script>
+    <script src={clientScriptSrc} defer></script>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+---
+import RedirectPage from '../../../components/RedirectPage.astro';
+
+export function getStaticPaths() {
+  return [{ params: { page: '2' } }];
+}
+---
+<RedirectPage destination="/" title="Archive Page" label="archive" />

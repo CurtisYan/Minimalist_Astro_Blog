@@ -1,0 +1,28 @@
+---
+import type { RecommendedPost } from '../lib/related-posts';
+import { getPostHref } from '../lib/posts';
+
+type Props = {
+  items: RecommendedPost[];
+};
+
+const { items = [] } = Astro.props;
+const relatedItems = items.filter((item) => item.kind === 'related');
+const distantItem = items.find((item) => item.kind === 'distant');
+---
+{items.length ? (
+  <aside class="related-posts" aria-label="Related posts">
+    <ol>
+      {relatedItems.map((item) => (
+        <li>
+          <a href={getPostHref(item.post)}>{item.post.data.title || item.post.id}</a>
+        </li>
+      ))}
+      {distantItem ? (
+        <li>
+          <a href={getPostHref(distantItem.post)}>{distantItem.post.data.title || distantItem.post.id}</a>
+        </li>
+      ) : null}
+    </ol>
+  </aside>
+) : null}

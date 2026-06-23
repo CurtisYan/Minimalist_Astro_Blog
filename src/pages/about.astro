@@ -1,0 +1,27 @@
+---
+import { getEntry, render } from 'astro:content';
+import SiteLayout from '../components/SiteLayout.astro';
+import { siteConfig } from '../config/site';
+
+const page = await getEntry('pages', siteConfig.content.aboutPage);
+
+if (!page || page.data.draft) {
+  throw new Error(`Page not found: ${siteConfig.content.aboutPage}`);
+}
+
+const { Content } = await render(page);
+const aboutLinks = siteConfig.aboutLinks;
+---
+<SiteLayout title={page.data.title} description={page.data.description}>
+  <main class="article">
+    <h1>{page.data.title}</h1>
+    <Content />
+    {aboutLinks.length ? (
+      <nav class="profile-links" aria-label="About links">
+        {aboutLinks.map((link) => (
+          <a class="profile-link" href={link.href}>{link.label}</a>
+        ))}
+      </nav>
+    ) : null}
+  </main>
+</SiteLayout>
