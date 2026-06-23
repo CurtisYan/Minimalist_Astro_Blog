@@ -5,7 +5,7 @@ import { siteConfig } from '../config/site';
   <div class="separator-wrap">
     <hr class="archive-separator">
   </div>
-  <p>&copy; <span data-year></span> {siteConfig.footer.text || siteConfig.title}</p>
+  <p>&copy; <span data-year></span> <a href="/">{siteConfig.footer.text || siteConfig.title}</a></p>
   {siteConfig.footer.credit ? (
     <p class="credits">
       <a href={siteConfig.footer.credit.href}>{siteConfig.footer.credit.label}</a>

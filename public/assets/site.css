@@ -383,7 +383,7 @@ main {
 .article h1 {
   text-align: center;
   font-family: "Times Now", "Times New Roman", Times, serif;
-  font-weight: normal;
+  font-weight: 100;
   font-size: 3rem;
   letter-spacing: -1px;
   line-height: 90%;
@@ -402,18 +402,22 @@ main {
   opacity: 0.9;
 }
 
-.article > p:first-of-type {
-  text-indent: 2em;
+.article h2 {
+  margin: 2em 0 0.8em;
+  font-family: "Times Now", "Times New Roman", Times, serif;
+  font-size: 1.5em;
+  font-weight: 100;
+  line-height: 1.1;
+  text-align: center;
+  opacity: 0.65;
 }
 
-.article h2 {
-  margin: 2.4em 0 1em;
-  font-family: "Times Now", "Times New Roman", Times, serif;
-  font-size: clamp(1.65rem, 4vw, 2.2rem);
-  font-weight: 300;
-  line-height: 1.15;
+.article em {
+  font-style: italic;
+}
+
+.article .has-text-align-center {
   text-align: center;
-  opacity: 0.72;
 }
 
 .article p a {
@@ -538,23 +542,25 @@ main {
 
 .article h3 {
   margin: 1.5em 0 1em;
-  font-family: 'Times New Roman', Times, serif;
-  font-size: clamp(24px, 3.2vw, 27px);
+  font-family: "Times Now", "Times New Roman", Times, serif;
+  font-size: 1.5em;
   font-weight: 100;
   font-style: normal;
   letter-spacing: 0.5px;
   line-height: 1.1;
-  opacity: 0.65;
+  opacity: 0.6;
 }
 
 .article figure {
-  margin: var(--space-70) auto;
+  margin: 1em auto;
+  text-align: center;
 }
 
 .article figure.wp-block-image {
   display: block;
-  width: min(97%, 582px);
-  margin: var(--space-60) auto;
+  width: 100%;
+  max-width: 90%;
+  margin: 1em auto;
 }
 
 .article figure.wp-block-image img,
@@ -562,61 +568,35 @@ main {
 .article img {
   display: block;
   width: auto;
-  max-width: 100%;
+  max-width: 90%;
   height: auto;
-  border-radius: 8px;
-  box-shadow: 0 10px 28px rgba(0,0,0,0.12);
-  margin-left: auto;
-  margin-right: auto;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 1em auto;
 }
 
-/* Lead image: make the first image in an article wider */
-.article img:first-of-type {
-  max-width: min(97%, 582px);
-  margin-top: var(--space-70);
-  margin-bottom: var(--space-70);
-}
-
-/* Regular inline images narrower */
-.article p > img,
-.article p img {
-  max-width: min(88%, 520px);
-  margin-top: 0;
-  margin-bottom: 0;
+.article figure.wp-block-image img {
+  max-width: 100%;
 }
 
 .article p:has(> img) {
-  margin: var(--space-70) auto;
+  margin: 1em auto;
   text-indent: 0;
 }
 
 .article p:has(> img + em),
 .article p:has(> img + small) {
-  margin-bottom: var(--space-80);
-}
-
-/* Smaller screens: relax sizes */
-@media (max-width: 900px) {
-  .article img:first-of-type {
-    max-width: 100%;
-    margin-top: var(--space-60);
-    margin-bottom: var(--space-60);
-  }
-
-  .article p > img,
-  .article p img {
-    max-width: 92%;
-  }
+  margin-bottom: 1em;
 }
 
 .article figure.wp-block-image.is-lead-image {
-  margin-top: var(--space-70);
-  margin-bottom: var(--space-70);
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .article figure.wp-block-image.is-regular-image {
-  margin-top: var(--space-50);
-  margin-bottom: var(--space-50);
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .article figure.wp-block-image figcaption {
@@ -808,6 +788,18 @@ body.search-open {
 .site-footer p + p {
   margin-top: 15px;
   font-style: italic;
+}
+
+.site-footer a {
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+}
+
+.site-footer a:hover,
+.site-footer a:focus {
+  color: #0000ee;
+  text-decoration: underline;
 }
 
 .credits {

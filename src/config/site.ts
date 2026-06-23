@@ -65,8 +65,11 @@ export const siteConfig = {
     }
   ],
   footer: {
-    text: '极简博客模板',
-    credit: null
+    text: "Curtis's Blog",
+    credit: {
+      label: 'Theme by Anders Norén',
+      href: 'https://andersnoren.se/'
+    }
   }
 } as const;
 
