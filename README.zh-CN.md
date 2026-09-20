@@ -37,13 +37,14 @@ npm run dev
 - `daily/` 对应生活栏目
 - `tech/` 对应技术栏目
 
-新建 Markdown 文件，并添加如下 Frontmatter：
+新建一个以 `.md` 结尾的文件，并使用下面的文章模板：
 
 ```md
 ---
 title: 我的第一篇文章
 date: 2026-09-20
 tags: [Astro, 笔记]
+keywords: [Astro, 博客]
 excerpt: 文章的简短介绍。
 draft: false
 ---
@@ -52,6 +53,8 @@ draft: false
 ```
 
 独立页面存放在 `src/content/pages/`。发布前请替换或删除仓库中的示例内容。
+
+更完整的配置项、栏目映射、图片写法和发布前检查，请查看[模板使用指南](./src/content/posts/tech/2026-06-24-template-usage.md)。
 
 ## 构建与部署
 

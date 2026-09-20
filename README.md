@@ -37,13 +37,14 @@ Posts are stored in `src/content/posts/`. The default folders are:
 - `daily/` for the Life section
 - `tech/` for the Tech section
 
-Create a Markdown file with frontmatter like this:
+Create a file ending in `.md` and use this post template:
 
 ```md
 ---
 title: My First Post
 date: 2026-09-20
 tags: [Astro, Notes]
+keywords: [Astro, blog]
 excerpt: A short description of the post.
 draft: false
 ---
@@ -52,6 +53,8 @@ Write your post here.
 ```
 
 Standalone pages are stored in `src/content/pages/`. Replace or remove the sample content before publishing.
+
+For complete configuration options, section mapping, image usage, and a pre-launch checklist, see the [template usage guide](./src/content/posts/tech/2026-06-24-template-usage.md).
 
 ## Build and Deploy
 
