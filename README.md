@@ -1,6 +1,6 @@
 # Minimalist Astro Blog
 
-[Chinese Documentation](./README.zh-CN.md)
+[中文文档](./README.zh-CN.md)
 
 A minimal, archive-first blog template built with [Astro](https://astro.build/). It is designed for personal writing, technical notes, and other Markdown-based content.
 
