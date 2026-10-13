@@ -14,8 +14,10 @@ const aboutLinks = siteConfig.aboutLinks;
 ---
 <SiteLayout title={page.data.title} description={page.data.description}>
   <main class="article">
-    <h1>{page.data.title}</h1>
-    <Content />
+    <h1 class="article-title">{page.data.title}</h1>
+    <div class="article-body">
+      <Content />
+    </div>
     {aboutLinks.length ? (
       <nav class="profile-links" aria-label="About links">
         {aboutLinks.map((link) => (

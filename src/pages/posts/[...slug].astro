@@ -32,9 +32,11 @@ const recommendedPosts = getRecommendedPosts(post, posts);
 ---
 <SiteLayout title={post.data.title}>
   <main class="article">
-    <h1>{post.data.title}</h1>
+    <h1 class="article-title">{post.data.title}</h1>
     <p class="post-meta">{formatMonthDay(publishedDate) || post.data.date || ''}</p>
-    <Content />
+    <div class="article-body">
+      <Content />
+    </div>
     {tags.length ? (
       <p class="post-tags" aria-label="Tags">
         {tags.map((tag) => (
