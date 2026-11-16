@@ -6,6 +6,8 @@
 
 演示：[blog.curvio.org](https://blog.curvio.org)
 
+![博客归档预览（示例文章）](./docs/images/blog-demo-zh.png)
+
 ## 功能特点
 
 - 简洁的归档布局，默认包含生活和技术栏目

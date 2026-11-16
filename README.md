@@ -6,6 +6,8 @@ A minimal, archive-first blog template built with [Astro](https://astro.build/).
 
 Demo: [blog.curvio.org](https://blog.curvio.org)
 
+![Blog archive preview with sample articles](./docs/images/blog-demo-en.png)
+
 ## Features
 
 - Clean archive layout with Life and Tech sections
